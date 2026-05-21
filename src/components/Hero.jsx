@@ -27,19 +27,12 @@ export default function Hero() {
       id="home"
       className="relative min-h-[100svh] w-full overflow-hidden flex flex-col text-white"
     >
-      {/* Background image + layered overlays */}
+      {/* Gradient background + layered overlays */}
       <div className="absolute inset-0 -z-10">
-        <img
-          src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=2400&q=85"
-          alt="Premium highway journey"
-          className="w-full h-full object-cover scale-105"
-        />
-        {/* Deep rich overlay — richer contrast than before */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/95 via-brand-primary/80 to-black/60" />
-        {/* Gold warmth top-right */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(245,158,11,0.18),transparent_60%)]" />
-        {/* Light highlight bottom-right */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,rgba(37,99,235,0.25),transparent_55%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(125deg,#09142F_0%,#123C94_35%,#2F7CF6_68%,#F59E0B_118%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_20%,rgba(245,158,11,0.42),transparent_32%),radial-gradient(ellipse_at_82%_18%,rgba(96,165,250,0.58),transparent_34%),radial-gradient(ellipse_at_72%_88%,rgba(14,165,233,0.45),transparent_38%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,16,38,0.62)_0%,rgba(7,18,38,0.24)_48%,rgba(7,18,38,0.08)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(180deg,transparent_0%,rgba(6,16,38,0.58)_100%)]" />
         <div className="absolute inset-0 grain" />
       </div>
 
