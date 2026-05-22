@@ -74,7 +74,7 @@ export default function Hero() {
                     With{' '}
                     <span className="relative inline-block">
                       <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent">
-                        Drive On Demand
+                        driver service hourly
                       </span>
                       <svg
                         viewBox="0 0 300 10"

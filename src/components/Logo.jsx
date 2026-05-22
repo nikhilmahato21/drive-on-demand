@@ -1,13 +1,18 @@
 import { BUSINESS } from '../constants/business.js';
 
+const LOGO_URL =
+  'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779440798/WhatsApp_Image_2026-05-22_at_14.35.24-removebg-preview_iizo0t.png';
+
 export default function Logo({ light = false, compact = false }) {
+  const markSize = compact ? 'h-20 w-20' : 'h-32 w-32';
+
   return (
-    <a href="#home" className="flex items-center gap-3 group" aria-label={BUSINESS.fullName}>
-      <span className="relative inline-flex">
+    <a href="#home" className="group flex items-center gap-3" aria-label={BUSINESS.fullName}>
+      <span className={`relative inline-flex ${markSize} shrink-0`}>
         <img
-          src="/logo.svg"
+          src={LOGO_URL}
           alt={`${BUSINESS.fullName} logo`}
-          className={`${compact ? 'w-10 h-10' : 'w-12 h-12'} rounded-xl shadow-soft transition-transform duration-500 group-hover:rotate-[-6deg]`}
+          className="relative z-10 h-full w-full object-contain drop-shadow-lg transition-transform duration-500 group-hover:rotate-[-6deg]"
         />
         <span className="absolute -inset-1 rounded-2xl bg-brand-gold/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </span>
