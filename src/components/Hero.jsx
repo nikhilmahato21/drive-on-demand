@@ -94,7 +94,7 @@ export default function Hero() {
               Drive On Demand
             </span>
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 bg-gradient-to-r from-amber-300 via-brand-gold to-amber-400 bg-clip-text text-transparent">
-              Tours &amp; Travel
+              Travel's &amp; Tourism
             </span>
           </h1>
         </motion.div>
