@@ -99,7 +99,7 @@ Open **`src/constants/business.js`** and change:
 phone:      '+91 00000 00000',
 phoneRaw:   '+910000000000',     // for tel: links
 whatsapp:   '910000000000',      // country code + number, NO + sign
-email:      'bookings@driveondemand.in',
+email:      'driveondemand001@gmail.com',
 address:    'Jamshedpur (Tata), Jharkhand 831001, India',
 ```
 

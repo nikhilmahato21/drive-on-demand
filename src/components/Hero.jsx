@@ -1,222 +1,220 @@
 import { motion } from 'framer-motion';
 import {
-  FaWhatsapp, FaPhoneAlt, FaPlaneDeparture, FaUserTie,
-  FaRoad, FaTruckMoving, FaCheckCircle, FaMapMarkerAlt,
-  FaStar, FaShieldAlt, FaClock, FaArrowDown,
+  FaWhatsapp, FaPhoneAlt, FaPlaneDeparture,
+  FaRoad, FaTruckMoving, FaMapMarkerAlt,
+  FaStar, FaShieldAlt, FaClock, FaArrowDown, FaCheckCircle,
 } from 'react-icons/fa';
-import { fadeUp, stagger } from '../utils/motion.js';
 import { BUSINESS, buildCallLink, buildWhatsAppLink } from '../constants/business.js';
 
-const features = [
-  { icon: FaPlaneDeparture, label: 'Airport Transfers', desc: 'Kolkata, Ranchi & beyond' },
-  { icon: FaUserTie,        label: 'Driver on Demand',  desc: 'Trained & courteous' },
-  { icon: FaRoad,           label: 'Outstation Trips',  desc: 'Pan-India coverage' },
-  { icon: FaTruckMoving,    label: 'Vehicle Transport', desc: 'Door-to-door delivery' },
+const HERO_BG = '/hero-bg.jpg';
+
+const services = [
+  { icon: FaPlaneDeparture, label: 'Airport Transfers' },
+  { icon: FaRoad,           label: 'Outstation Trips' },
+  { icon: FaTruckMoving,    label: 'Vehicle Transport' },
+  { icon: FaShieldAlt,      label: 'Safe & Verified' },
 ];
 
 const stats = [
-  { value: '500+',  label: 'Happy Customers' },
-  { value: '4.9',   label: 'Star Rating', icon: FaStar },
-  { value: '10+',   label: 'Cities Covered' },
-  { value: '24 / 7', label: 'Always Available' },
+  { value: '500+',   label: 'Happy Customers' },
+  { value: '4.9★',  label: 'Star Rating' },
+  { value: '10+',    label: 'Cities Covered' },
+  { value: '24/7',   label: 'Always Available' },
 ];
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-[100svh] w-full overflow-hidden flex flex-col text-white"
+      className="relative z-0 min-h-[100svh] w-full overflow-hidden flex flex-col bg-brand-ink text-white"
     >
-      {/* Gradient background + layered overlays */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-[linear-gradient(125deg,#09142F_0%,#123C94_35%,#2F7CF6_68%,#F59E0B_118%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_20%,rgba(245,158,11,0.42),transparent_32%),radial-gradient(ellipse_at_82%_18%,rgba(96,165,250,0.58),transparent_34%),radial-gradient(ellipse_at_72%_88%,rgba(14,165,233,0.45),transparent_38%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(6,16,38,0.62)_0%,rgba(7,18,38,0.24)_48%,rgba(7,18,38,0.08)_100%)]" />
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-[linear-gradient(180deg,transparent_0%,rgba(6,16,38,0.58)_100%)]" />
-        <div className="absolute inset-0 grain" />
+      {/* ── Background Image + Overlays ── */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={HERO_BG}
+          alt="India travel destination"
+          className="h-full w-full object-cover object-center scale-105"
+          style={{ animation: 'heroZoom 18s ease-in-out infinite alternate' }}
+          loading="eager"
+          fetchPriority="high"
+          referrerPolicy="no-referrer"
+        />
+        {/* Dark base overlay */}
+        <div className="absolute inset-0 bg-black/60" />
+        {/* Top fade for navbar */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
+        {/* Golden glow accent bottom-left */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_10%_90%,rgba(245,158,11,0.18),transparent)]" />
+        {/* Blue glow accent top-right */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_90%_10%,rgba(37,99,235,0.22),transparent)]" />
       </div>
 
-      {/* ── Main two-column layout ───────────────────── */}
-      <div className="flex-1 flex items-center">
-        <div className="max-container container-px w-full pt-32 pb-10 lg:pt-28 lg:pb-16">
-          <div className="grid lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px] gap-10 xl:gap-16 items-center">
+      <style>{`
+        @keyframes heroZoom {
+          from { transform: scale(1.05); }
+          to   { transform: scale(1.12); }
+        }
+      `}</style>
 
-            {/* ── LEFT: Content ── */}
-            <div>
-              {/* Location pill */}
-              <motion.div
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex items-center gap-2 glass-dark text-white/90 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide mb-7"
-              >
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75 animate-ping" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-gold" />
-                </span>
-                <FaMapMarkerAlt className="text-brand-gold" />
-                {BUSINESS.shortLocation}
-                <span className="text-white/40 hidden sm:inline">·</span>
-                <span className="hidden sm:inline text-white/70">Serving across India</span>
-              </motion.div>
+      {/* ── Hero Body ── */}
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 pt-28 pb-12">
 
-              <motion.div variants={stagger(0.1)} initial="hidden" animate="show">
-                <motion.span variants={fadeUp} className="eyebrow !text-brand-gold">
-                  — {BUSINESS.tagline} —
-                </motion.span>
+        {/* Location badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 text-white/90 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold tracking-wide mb-8"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75 animate-ping" />
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-gold" />
+          </span>
+          <FaMapMarkerAlt className="text-brand-gold" />
+          <span>{BUSINESS.shortLocation}</span>
+          <span className="text-white/30">·</span>
+          <span className="text-white/65">Serving across India</span>
+        </motion.div>
 
-                <motion.h1
-                  variants={fadeUp}
-                  className="h-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.6rem] xl:text-7xl mt-4 text-balance leading-[1.06]"
-                >
-                  Travel Smarter{' '}
-                  <span className="block mt-1">
-                    With{' '}
-                    <span className="relative inline-block">
-                      <span className="bg-gradient-to-r from-brand-gold via-amber-300 to-brand-gold bg-clip-text text-transparent">
-                        driver service hourly
-                      </span>
-                      <svg
-                        viewBox="0 0 300 10"
-                        className="absolute -bottom-1.5 left-0 w-full h-2.5 text-brand-gold/70"
-                        fill="none"
-                        aria-hidden="true"
-                      >
-                        <path d="M2 7 Q 75 2 150 6 T 298 5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-                      </svg>
-                    </span>
-                  </span>
-                </motion.h1>
+        {/* ── Main Heading ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="text-sm sm:text-base uppercase tracking-[0.35em] text-brand-gold font-semibold mb-4">
+            Premium Travel &amp; Tourism
+          </p>
 
-                <motion.p
-                  variants={fadeUp}
-                  className="mt-6 text-base sm:text-lg text-white/80 max-w-xl leading-relaxed"
-                >
-                  Trusted travel, driver and vehicle transport services across India —
-                  from{' '}
-                  <span className="text-brand-gold font-semibold">Jamshedpur (Tata)</span>{' '}
-                  to anywhere you need to be.
-                </motion.p>
+          <h1 className="font-display font-bold leading-[1.08] tracking-tight">
+            <span className="block text-2xl sm:text-3xl md:text-4xl text-white/80 font-semibold mb-1">
+              Welcome to
+            </span>
+            <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white drop-shadow-lg">
+              Drive On Demand
+            </span>
+            <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 bg-gradient-to-r from-amber-300 via-brand-gold to-amber-400 bg-clip-text text-transparent">
+              Tours &amp; Travel
+            </span>
+          </h1>
+        </motion.div>
 
-                {/* CTAs */}
-                <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
-                  <a href="#contact" className="btn-gold text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-3.5">
-                    Book Your Ride
-                    <span aria-hidden="true">→</span>
-                  </a>
-                  <a href={buildCallLink()} className="btn-primary text-sm sm:text-base px-6 sm:px-7 py-3 sm:py-3.5">
-                    <FaPhoneAlt /> Call Now
-                  </a>
-                  <a
-                    href={buildWhatsAppLink()}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-ghost text-sm sm:text-base px-6 sm:px-7 py-3 sm:py-3.5"
-                  >
-                    <FaWhatsapp /> WhatsApp
-                  </a>
-                </motion.div>
+        {/* Decorative divider */}
+        <motion.div
+          initial={{ scaleX: 0, opacity: 0 }}
+          animate={{ scaleX: 1, opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.5 }}
+          className="mt-7 flex items-center gap-3"
+        >
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-brand-gold/70" />
+          <FaStar className="text-brand-gold text-xs" />
+          <FaStar className="text-brand-gold text-sm" />
+          <FaStar className="text-brand-gold text-xs" />
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-brand-gold/70" />
+        </motion.div>
 
-                {/* Trust chips */}
-                <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-2">
-                  {[
-                    { icon: FaShieldAlt, text: 'Verified Drivers' },
-                    { icon: FaStar,      text: '4.9-Star Rated' },
-                    { icon: FaClock,     text: '24 / 7 Support' },
-                  ].map((t) => (
-                    <span
-                      key={t.text}
-                      className="inline-flex items-center gap-1.5 glass-dark px-3 py-1.5 rounded-full text-xs font-semibold text-white/90"
-                    >
-                      <t.icon className="text-brand-gold text-[0.7rem]" />
-                      {t.text}
-                    </span>
-                  ))}
-                </motion.div>
-              </motion.div>
-            </div>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.55 }}
+          className="mt-6 text-base sm:text-lg text-white/75 max-w-2xl leading-relaxed"
+        >
+          Professional airport transfers, outstation trips &amp; vehicle transport from{' '}
+          <span className="text-brand-gold font-semibold">Jamshedpur (Tata)</span>{' '}
+          to every destination that matters — comfort, safety &amp; on-time, every time.
+        </motion.p>
 
-            {/* ── RIGHT: Feature panel (lg+) ── */}
-            <motion.div
-              initial={{ opacity: 0, x: 40 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="hidden lg:flex flex-col gap-4"
+        {/* Service chips */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-8 flex flex-wrap justify-center gap-3"
+        >
+          {services.map((s) => (
+            <span
+              key={s.label}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/15 px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-white/90 hover:bg-white/20 transition-colors"
             >
-              {/* Panel header */}
-              <div className="glass-dark rounded-2xl px-5 py-4 border border-white/10">
-                <p className="text-[0.68rem] uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3">
-                  Why Travelers Choose Us
-                </p>
-                <ul className="flex flex-col gap-3">
-                  {features.map((f, i) => (
-                    <motion.li
-                      key={f.label}
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
-                      className="flex items-center gap-3.5"
-                    >
-                      <span className="w-10 h-10 rounded-xl bg-brand-gold/15 border border-brand-gold/25 text-brand-gold flex items-center justify-center shrink-0">
-                        <f.icon className="text-sm" />
-                      </span>
-                      <div className="min-w-0">
-                        <p className="text-sm font-semibold text-white leading-tight">{f.label}</p>
-                        <p className="text-xs text-white/55 font-medium mt-0.5">{f.desc}</p>
-                      </div>
-                      <FaCheckCircle className="ml-auto text-brand-gold/70 shrink-0 text-sm" />
-                    </motion.li>
-                  ))}
-                </ul>
-              </div>
+              <s.icon className="text-brand-gold" />
+              {s.label}
+            </span>
+          ))}
+        </motion.div>
 
-              {/* Booking nudge card */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.85, duration: 0.6 }}
-                className="relative overflow-hidden rounded-2xl bg-gradient-gold p-5 shadow-gold"
-              >
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(255,255,255,0.18),transparent_60%)]" />
-                <p className="relative text-xs uppercase tracking-widest font-semibold text-white/80 mb-1">
-                  Ready to travel?
-                </p>
-                <p className="relative text-xl font-display font-bold text-white leading-tight mb-4">
-                  Book in 60 seconds.<br />No hidden charges.
-                </p>
-                <a
-                  href="#contact"
-                  className="relative inline-flex items-center gap-2 bg-white text-brand-goldDark font-bold text-sm px-5 py-2.5 rounded-full shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5"
-                >
-                  Get a Free Quote →
-                </a>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.85 }}
+          className="mt-10 flex flex-wrap justify-center gap-3 sm:gap-4"
+        >
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-brand-gold to-amber-500 hover:from-amber-400 hover:to-brand-gold text-white font-bold text-sm sm:text-base px-7 sm:px-9 py-3.5 sm:py-4 rounded-full shadow-gold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-8px_rgba(245,158,11,0.55)]"
+          >
+            Book Your Ride →
+          </a>
+          <a
+            href={buildCallLink()}
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 border border-white/25 text-white font-semibold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5"
+          >
+            <FaPhoneAlt className="text-brand-gold text-xs" /> Call Now
+          </a>
+          <a
+            href={buildWhatsAppLink()}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#25D366]/20 hover:bg-[#25D366]/35 border border-[#25D366]/40 text-white font-semibold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 hover:-translate-y-0.5"
+          >
+            <FaWhatsapp className="text-[#25D366] text-base" /> WhatsApp
+          </a>
+        </motion.div>
+
+        {/* Trust badges */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1.05 }}
+          className="mt-8 flex flex-wrap justify-center gap-2"
+        >
+          {[
+            { icon: FaShieldAlt, text: 'Verified Drivers' },
+            { icon: FaCheckCircle, text: 'No Hidden Charges' },
+            { icon: FaClock,     text: '24/7 Support' },
+          ].map((t) => (
+            <span
+              key={t.text}
+              className="inline-flex items-center gap-1.5 bg-black/30 backdrop-blur-sm border border-white/10 px-3 py-1.5 rounded-full text-[0.72rem] font-semibold text-white/80"
+            >
+              <t.icon className="text-brand-gold text-[0.65rem]" />
+              {t.text}
+            </span>
+          ))}
+        </motion.div>
       </div>
 
-      {/* ── Stats bar ── */}
+      {/* ── Stats Bar ── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.9, duration: 0.6 }}
-        className="relative z-10 glass-dark border-t border-white/10"
+        transition={{ delay: 1.1, duration: 0.6 }}
+        className="relative z-10 bg-black/40 backdrop-blur-xl border-t border-white/10"
       >
-        <div className="max-container container-px py-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-5">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-px">
             {stats.map((s, i) => (
               <div
                 key={s.label}
-                className={`flex flex-col sm:flex-row items-center sm:items-center justify-center gap-1 sm:gap-2.5 py-3 px-4 text-center sm:text-left ${
+                className={`flex flex-col items-center justify-center py-2 px-4 text-center ${
                   i < stats.length - 1 ? 'sm:border-r border-white/10' : ''
                 }`}
               >
-                <span className="text-2xl font-display font-bold text-brand-gold leading-none flex items-center gap-1">
+                <span className="text-2xl sm:text-3xl font-display font-bold text-brand-gold leading-none">
                   {s.value}
-                  {s.icon && <s.icon className="text-base" />}
                 </span>
-                <span className="text-[0.72rem] text-white/60 font-medium uppercase tracking-wide leading-tight">
+                <span className="text-[0.7rem] text-white/55 font-medium uppercase tracking-widest mt-1">
                   {s.label}
                 </span>
               </div>
@@ -230,11 +228,11 @@ export default function Hero() {
         href="#services"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.4 }}
-        className="absolute bottom-[6.5rem] left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1 text-white/40 hover:text-white/70 transition-colors"
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-24 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-1.5 text-white/35 hover:text-white/60 transition-colors"
         aria-label="Scroll to services"
       >
-        <span className="text-[0.6rem] uppercase tracking-widest font-semibold">Explore</span>
+        <span className="text-[0.58rem] uppercase tracking-[0.25em] font-semibold">Scroll</span>
         <FaArrowDown className="text-xs animate-bounce" />
       </motion.a>
     </section>

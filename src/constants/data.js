@@ -260,6 +260,6 @@ export const NAV_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
   { label: 'Routes', href: '#routes' },
-  { label: 'Gallery', href: '#gallery' },
+  // { label: 'Gallery', href: '#gallery' },
   { label: 'Contact', href: '#contact' },
 ];

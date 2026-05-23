@@ -5,7 +5,7 @@ import WhyChooseUs from '../components/WhyChooseUs.jsx';
 import HowItWorks from '../components/HowItWorks.jsx';
 import PopularRoutes from '../components/PopularRoutes.jsx';
 import Testimonials from '../components/Testimonials.jsx';
-import Gallery from '../components/Gallery.jsx';
+// import Gallery from '../components/Gallery.jsx';
 import Contact from '../components/Contact.jsx';
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <HowItWorks />
       <PopularRoutes />
       <Testimonials />
-      <Gallery />
+      {/* <Gallery /> */}
       <Contact />
     </main>
   );
