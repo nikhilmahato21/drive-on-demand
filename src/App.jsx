@@ -49,7 +49,7 @@ function OpeningLoader() {
             transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
           />
           <motion.div
-            className="relative w-96 h-96 rounded-full bg-white  p-5 overflow-hidden ring-2 ring-brand-gold/50"
+            className="relative w-56 h-56 md:w-96 md:h-96 rounded-full bg-white  p-5 overflow-hidden ring-2 ring-brand-gold/50"
             style={{ boxShadow: '0 0 48px rgba(245,158,11,0.35), 0 0 96px rgba(245,158,11,0.12)' }}
             animate={{ boxShadow: [
               '0 0 48px rgba(245,158,11,0.35), 0 0 96px rgba(245,158,11,0.12)',
