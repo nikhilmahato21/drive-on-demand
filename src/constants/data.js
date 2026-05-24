@@ -110,7 +110,7 @@ export const POPULAR_ROUTES = [
     distance: '130 km',
     duration: '≈ 3 h',
     image:
-      'https://images.unsplash.com/photo-1494522358652-f30e61a60313?auto=format&fit=crop&w=1200&q=80',
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779588354/ranchi_gnlfxt.jpg',
     note: 'Most popular route',
   },
   {
@@ -119,7 +119,7 @@ export const POPULAR_ROUTES = [
     distance: '290 km',
     duration: '≈ 6 h',
     image:
-      'https://images.unsplash.com/photo-1521727857535-28d2047314ac?auto=format&fit=crop&w=1200&q=80',
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779588354/kolkata_qmr8dg.jpg',
     note: 'Flight-tracked transfer',
   },
   {
@@ -128,7 +128,7 @@ export const POPULAR_ROUTES = [
     distance: '120 km',
     duration: '≈ 2.5 h',
     image:
-      'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779588354/bokaro_fowfu3.jpg',
     note: 'Daily departures',
   },
   {
@@ -137,7 +137,7 @@ export const POPULAR_ROUTES = [
     distance: '170 km',
     duration: '≈ 3.5 h',
     image:
-      'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=1200&q=80',
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779588354/dhanbad_w2ayw2.jpg',
     note: 'Business traveller favourite',
   },
   {
@@ -146,7 +146,7 @@ export const POPULAR_ROUTES = [
     distance: '380 km',
     duration: '≈ 8 h',
     image:
-      'https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=1200&q=80',
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779588471/patna.jpg',
     note: 'Comfortable highway drive',
   },
   {
@@ -155,8 +155,17 @@ export const POPULAR_ROUTES = [
     distance: '510 km',
     duration: '≈ 10 h',
     image:
-      'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1200&q=80',
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779588354/varanasi_whveeu.jpg',
     note: 'Pilgrimage & leisure',
+  },
+  {
+    from: 'Tata',
+    to: 'Bhubaneswar',
+    distance: '410 km',
+    duration: '≈ 8.5 h',
+    image:
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779588559/WhatsApp_Image_2026-05-24_at_07.35.53_lxl6aj.jpg',
+    note: 'Odisha outstation trips',
   },
 ];
 

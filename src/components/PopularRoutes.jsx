@@ -29,7 +29,7 @@ export default function PopularRoutes() {
               whileHover={{ y: -6 }}
               className="group relative bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-premium transition-all duration-500"
             >
-              <div className="relative h-44 overflow-hidden">
+              <div className="relative h-56 sm:h-64 overflow-hidden">
                 <img
                   src={r.image}
                   alt={`${r.from} to ${r.to} route`}
