@@ -17,21 +17,19 @@ export default function Navbar() {
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-white/85 backdrop-blur-xl shadow-soft border-b border-black/5'
-          : 'bg-transparent'
+          ? 'bg-white/90 backdrop-blur-xl shadow-soft border-b border-black/5'
+          : 'bg-white/80 backdrop-blur-xl border-b border-white/70 shadow-[0_10px_30px_rgba(15,23,42,0.08)]'
       }`}
     >
       <nav className="max-container container-px flex items-center justify-between h-20">
-        <Logo light={!scrolled} />
+        <Logo />
 
         <ul className="hidden lg:flex items-center gap-1">
           {NAV_LINKS.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`relative px-4 py-2 text-sm font-semibold tracking-wide transition-colors duration-300 group ${
-                  scrolled ? 'text-brand-ink/80 hover:text-brand-primary' : 'text-white/90 hover:text-white'
-                }`}
+                className="relative px-4 py-2 text-sm font-semibold tracking-wide text-brand-ink/80 transition-colors duration-300 hover:text-brand-primary group"
               >
                 {l.label}
                 <span className="absolute left-4 right-4 -bottom-0.5 h-[2px] origin-left scale-x-0 bg-brand-gold transition-transform duration-300 group-hover:scale-x-100" />
@@ -49,9 +47,7 @@ export default function Navbar() {
         <button
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
-          className={`lg:hidden p-2 rounded-xl transition-colors ${
-            scrolled || open ? 'text-brand-primary' : 'text-white'
-          }`}
+          className="lg:hidden p-2 rounded-xl text-brand-primary transition-colors hover:bg-brand-primary/5"
         >
           {open ? <FiX size={26} /> : <FiMenu size={26} />}
         </button>
