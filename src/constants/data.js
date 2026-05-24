@@ -167,6 +167,24 @@ export const POPULAR_ROUTES = [
       'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779588559/WhatsApp_Image_2026-05-24_at_07.35.53_lxl6aj.jpg',
     note: 'Odisha outstation trips',
   },
+  {
+    from: 'Tata',
+    to: 'Digha',
+    distance: '330 km',
+    duration: '≈ 7 h',
+    image:
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779589249/digha.jpg',
+    note: 'Beach getaway',
+  },
+  {
+    from: 'Tata',
+    to: 'Netarhat',
+    distance: '260 km',
+    duration: '≈ 6 h',
+    image:
+      'https://res.cloudinary.com/dynbpb9u0/image/upload/v1779589249/netarhat.jpg',
+    note: 'Hill station escape',
+  },
 ];
 
 export const TESTIMONIALS = [

@@ -96,6 +96,9 @@ export default function Hero() {
             <span className="block text-4xl sm:text-5xl md:text-6xl lg:text-7xl mt-2 bg-gradient-to-r from-amber-300 via-brand-gold to-amber-400 bg-clip-text text-transparent">
               Travel's &amp; Tourism
             </span>
+            <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white/85 font-semibold mt-4">
+              {BUSINESS.tagline}
+            </span>
           </h1>
         </motion.div>
 
